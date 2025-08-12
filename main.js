@@ -56,8 +56,6 @@ window.addEventListener("scroll",()=>{
    navEL.classList.remove("active")
  }
   console.log(bottomEl.offsetTop)
-
-
 });
 //form submit
 const formEl =document.querySelector("#form")
