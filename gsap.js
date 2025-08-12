@@ -1,77 +1,179 @@
- // gsap-scroll.js
-document.addEventListener("DOMContentLoaded", () => {
-  // Load GSAP + ScrollTrigger from CDN if not already loaded
-  function loadScript(src, callback) {
-    const script = document.createElement("script");
-    script.src = src;
-    script.onload = callback;
-    document.head.appendChild(script);
-  }
+ document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
 
-  function initAnimations() {
-    gsap.registerPlugin(ScrollTrigger);
+  let mm = gsap.matchMedia();
 
-    const isSmallScreen = window.innerWidth < 768;
-
-    function fadeUp(trigger, target, delay = 0, stagger = 0) {
-      gsap.from(target, {
-        scrollTrigger: { trigger, start: "top 85%" },
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        delay,
-        stagger
-      });
-    }
-
-    function slideIn(trigger, target, fromX, delay = 0, stagger = 0) {
-      gsap.from(target, {
-        scrollTrigger: { trigger, start: "top 85%" },
-        x: fromX,
-        opacity: 0,
-        duration: 1,
-        delay,
-        stagger
-      });
-    }
-
-    // INTRO SECTION
-    if (isSmallScreen) {
-      fadeUp(".intro-section", ".intro-section .text-content");
-      fadeUp(".intro-section", ".intro-section .phone-display img", 0.2);
-    } else {
-      slideIn(".intro-section", ".intro-section .text-content", -50);
-      slideIn(".intro-section", ".intro-section .phone-display img", 50, 0.3);
-    }
-
-    // TRUSTED SECTION
-    fadeUp(".trusted-section", ".trusted-section .feature", 0, 0.2);
-
-    // PLATFORM SECTION
-    if (isSmallScreen) {
-      fadeUp(".platform-section", ".platform-section .card", 0, 0.2);
-      fadeUp(".platform-section", ".platform-section .platform-text", 0.2);
-    } else {
-      slideIn(".platform-section", ".platform-section .card", -40, 0, 0.2);
-      slideIn(".platform-section", ".platform-section .platform-text", 40, 0.2);
-    }
-
-    // PORTFOLIO SECTION
-    fadeUp(".portfolio-section", ".portfolio-section .option", 0, 0.2);
-
-    // FEATURES SECTION
-    fadeUp(".features-section", ".features-section .feature", 0, 0.2);
-    fadeUp(".features-section", ".features-section .bottom-img img", 0.3);
-
-    // FOOTER
-    fadeUp(".footer", ".footer", 0);
-  }
-
-  if (typeof gsap === "undefined") {
-    loadScript("https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js", () => {
-      loadScript("https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js", initAnimations);
+  // Small devices (max-width: 768px)
+  mm.add("(max-width: 768px)", () => {
+    // Intro
+    gsap.from(".intro-section .text-content", {
+      scrollTrigger: { trigger: ".intro-section", start: "top 85%" },
+      x: -30,
+      y: 20,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
     });
-  } else {
-    initAnimations();
-  }
+    gsap.from(".intro-section .phone-display img", {
+      scrollTrigger: { trigger: ".intro-section", start: "top 85%" },
+      x: 30,
+      y: 20,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      delay: 0.2,
+    });
+
+    // Trusted section features (stagger)
+    gsap.from(".trusted-section .feature", {
+      scrollTrigger: { trigger: ".trusted-section", start: "top 85%" },
+      y: 20,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      stagger: 0.3,
+    });
+
+    // Platform cards and text
+    gsap.from(".platform-section .card", {
+      scrollTrigger: { trigger: ".platform-section", start: "top 85%" },
+      x: -20,
+      y: 20,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      stagger: 0.3,
+    });
+    gsap.from(".platform-section .platform-text", {
+      scrollTrigger: { trigger: ".platform-section", start: "top 85%" },
+      x: 20,
+      y: 20,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      delay: 0.2,
+    });
+
+    // Portfolio options
+    gsap.from(".portfolio-section .option", {
+      scrollTrigger: { trigger: ".portfolio-section", start: "top 85%" },
+      y: 20,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      stagger: 0.3,
+    });
+
+    // Features section
+    gsap.from(".features-section .feature", {
+      scrollTrigger: { trigger: ".features-section", start: "top 85%" },
+      y: 20,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      stagger: 0.3,
+    });
+    gsap.from(".features-section .bottom-img img", {
+      scrollTrigger: { trigger: ".features-section", start: "top 85%" },
+      y: 20,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      delay: 0.3,
+    });
+
+    // Footer
+    gsap.from(".footer", {
+      scrollTrigger: { trigger: ".footer", start: "top 90%" },
+      y: 15,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+    });
+  });
+
+  // Large devices (min-width: 769px)
+  mm.add("(min-width: 769px)", () => {
+    // Intro
+    gsap.from(".intro-section .text-content", {
+      scrollTrigger: { trigger: ".intro-section", start: "top 85%" },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+    });
+    gsap.from(".intro-section .phone-display img", {
+      scrollTrigger: { trigger: ".intro-section", start: "top 85%" },
+      y: -50,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      delay: 0.2,
+    });
+
+    // Trusted section features
+    gsap.from(".trusted-section .feature", {
+      scrollTrigger: { trigger: ".trusted-section", start: "top 85%" },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      stagger: 0.3,
+    });
+
+    // Platform cards and text
+    gsap.from(".platform-section .card", {
+      scrollTrigger: { trigger: ".platform-section", start: "top 85%" },
+      x: -50,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      stagger: 0.3,
+    });
+    gsap.from(".platform-section .platform-text", {
+      scrollTrigger: { trigger: ".platform-section", start: "top 85%" },
+      x: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      delay: 0.2,
+    });
+
+    // Portfolio options
+    gsap.from(".portfolio-section .option", {
+      scrollTrigger: { trigger: ".portfolio-section", start: "top 85%" },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      stagger: 0.3,
+    });
+
+    // Features section
+    gsap.from(".features-section .feature", {
+      scrollTrigger: { trigger: ".features-section", start: "top 85%" },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      stagger: 0.3,
+    });
+    gsap.from(".features-section .bottom-img img", {
+      scrollTrigger: { trigger: ".features-section", start: "top 85%" },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+      delay: 0.3,
+    });
+
+    // Footer
+    gsap.from(".footer", {
+      scrollTrigger: { trigger: ".footer", start: "top 90%" },
+      y: 30,
+      opacity: 0,
+      duration: 1,
+      ease: "power2.out",
+    });
+  });
 });
