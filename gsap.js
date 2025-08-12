@@ -1,21 +1,28 @@
  document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
+  const mm = gsap.matchMedia();
 
-  let mm = gsap.matchMedia();
-
-  // Small devices (max-width: 768px)
   mm.add("(max-width: 768px)", () => {
-    // Intro
+    // Intro text and image
     gsap.from(".intro-section .text-content", {
-      scrollTrigger: { trigger: ".intro-section", start: "top 85%" },
+      scrollTrigger: {
+        trigger: ".intro-section",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
       x: -30,
       y: 20,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
     });
-    gsap.from(".intro-section .phone-display img", {
-      scrollTrigger: { trigger: ".intro-section", start: "top 85%" },
+
+    gsap.from(".intro-section .phone-display ", {
+      scrollTrigger: {
+        trigger: ".intro-section",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
       x: 30,
       y: 20,
       opacity: 0,
@@ -24,28 +31,42 @@
       delay: 0.2,
     });
 
-    // Trusted section features (stagger)
+    // Trusted Section features/cards animation
     gsap.from(".trusted-section .feature", {
-      scrollTrigger: { trigger: ".trusted-section", start: "top 85%" },
+      scrollTrigger: {
+        trigger: ".trusted-section",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
       y: 20,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
-      stagger: 0.3,
+      stagger: 0.25,
     });
 
-    // Platform cards and text
+    // Platform Section cards animation
     gsap.from(".platform-section .card", {
-      scrollTrigger: { trigger: ".platform-section", start: "top 85%" },
+      scrollTrigger: {
+        trigger: ".platform-section",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
       x: -20,
       y: 20,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
-      stagger: 0.3,
+      stagger: 0.25,
     });
+
+    // Platform text animation
     gsap.from(".platform-section .platform-text", {
-      scrollTrigger: { trigger: ".platform-section", start: "top 85%" },
+      scrollTrigger: {
+        trigger: ".platform-section",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
       x: 20,
       y: 20,
       opacity: 0,
@@ -54,27 +75,41 @@
       delay: 0.2,
     });
 
-    // Portfolio options
+    // Portfolio Section options/cards animation
     gsap.from(".portfolio-section .option", {
-      scrollTrigger: { trigger: ".portfolio-section", start: "top 85%" },
+      scrollTrigger: {
+        trigger: ".portfolio-section",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
       y: 20,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
-      stagger: 0.3,
+      stagger: 0.25,
     });
 
-    // Features section
+    // Features Section cards animation
     gsap.from(".features-section .feature", {
-      scrollTrigger: { trigger: ".features-section", start: "top 85%" },
+      scrollTrigger: {
+        trigger: ".features-section",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
       y: 20,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
-      stagger: 0.3,
+      stagger: 0.25,
     });
-    gsap.from(".features-section .bottom-img img", {
-      scrollTrigger: { trigger: ".features-section", start: "top 85%" },
+
+    // Features section bottom image animation
+    gsap.from(".features-section .bottom-img ", {
+      scrollTrigger: {
+        trigger: ".features-section",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
       y: 20,
       opacity: 0,
       duration: 1,
@@ -82,9 +117,13 @@
       delay: 0.3,
     });
 
-    // Footer
+    // Footer animation
     gsap.from(".footer", {
-      scrollTrigger: { trigger: ".footer", start: "top 90%" },
+      scrollTrigger: {
+        trigger: ".footer",
+        start: "top 90%",
+        toggleActions: "play none none none",
+      },
       y: 15,
       opacity: 0,
       duration: 1,
@@ -92,18 +131,26 @@
     });
   });
 
-  // Large devices (min-width: 769px)
   mm.add("(min-width: 769px)", () => {
-    // Intro
+    // Intro text and image for desktop
     gsap.from(".intro-section .text-content", {
-      scrollTrigger: { trigger: ".intro-section", start: "top 85%" },
+      scrollTrigger: {
+        trigger: ".intro-section",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
       y: 50,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
     });
-    gsap.from(".intro-section .phone-display img", {
-      scrollTrigger: { trigger: ".intro-section", start: "top 85%" },
+
+    gsap.from(".intro-section .phone-display ", {
+      scrollTrigger: {
+        trigger: ".intro-section",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
       y: -50,
       opacity: 0,
       duration: 1,
@@ -111,27 +158,41 @@
       delay: 0.2,
     });
 
-    // Trusted section features
+    // Trusted Section features/cards animation desktop
     gsap.from(".trusted-section .feature", {
-      scrollTrigger: { trigger: ".trusted-section", start: "top 85%" },
+      scrollTrigger: {
+        trigger: ".trusted-section",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
       y: 50,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
-      stagger: 0.3,
+      stagger: 0.25,
     });
 
-    // Platform cards and text
+    // Platform Section cards animation desktop
     gsap.from(".platform-section .card", {
-      scrollTrigger: { trigger: ".platform-section", start: "top 85%" },
+      scrollTrigger: {
+        trigger: ".platform-section",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
       x: -50,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
-      stagger: 0.3,
+      stagger: 0.25,
     });
+
+    // Platform text animation desktop
     gsap.from(".platform-section .platform-text", {
-      scrollTrigger: { trigger: ".platform-section", start: "top 85%" },
+      scrollTrigger: {
+        trigger: ".platform-section",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
       x: 50,
       opacity: 0,
       duration: 1,
@@ -139,27 +200,41 @@
       delay: 0.2,
     });
 
-    // Portfolio options
+    // Portfolio Section options/cards animation desktop
     gsap.from(".portfolio-section .option", {
-      scrollTrigger: { trigger: ".portfolio-section", start: "top 85%" },
+      scrollTrigger: {
+        trigger: ".portfolio-section",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
       y: 50,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
-      stagger: 0.3,
+      stagger: 0.25,
     });
 
-    // Features section
+    // Features Section cards animation desktop
     gsap.from(".features-section .feature", {
-      scrollTrigger: { trigger: ".features-section", start: "top 85%" },
+      scrollTrigger: {
+        trigger: ".features-section",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
       y: 50,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
-      stagger: 0.3,
+      stagger: 0.25,
     });
+
+    // Features section bottom image animation desktop
     gsap.from(".features-section .bottom-img img", {
-      scrollTrigger: { trigger: ".features-section", start: "top 85%" },
+      scrollTrigger: {
+        trigger: ".features-section",
+        start: "top 80%",
+        toggleActions: "play none none none",
+      },
       y: 50,
       opacity: 0,
       duration: 1,
@@ -167,9 +242,13 @@
       delay: 0.3,
     });
 
-    // Footer
+    // Footer animation desktop
     gsap.from(".footer", {
-      scrollTrigger: { trigger: ".footer", start: "top 90%" },
+      scrollTrigger: {
+        trigger: ".footer",
+        start: "top 90%",
+        toggleActions: "play none none none",
+      },
       y: 30,
       opacity: 0,
       duration: 1,
