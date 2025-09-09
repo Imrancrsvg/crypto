@@ -6,9 +6,11 @@
     // Intro text and image
     gsap.from(".intro-section .text-content", {
       scrollTrigger: {
-        trigger: ".intro-section",
+        trigger: ".text-content",
         start: "top 80%",
-        toggleActions: "play none none none",
+        end:"bottom 20%",
+        marker:true,
+        toggleActions: "play reverse play reverse",
       },
       x: -30,
       y: 20,
@@ -38,7 +40,7 @@
         start: "top 80%",
         toggleActions: "play none none none",
       },
-      y: 20,
+      x: 20,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
@@ -53,7 +55,7 @@
         toggleActions: "play none none none",
       },
       x: -20,
-      y: 20,
+      y: 0,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
@@ -82,7 +84,7 @@
         start: "top 80%",
         toggleActions: "play none none none",
       },
-      y: 20,
+      x: 20,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
@@ -96,7 +98,7 @@
         start: "top 80%",
         toggleActions: "play none none none",
       },
-      y: 20,
+      x: -20,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
@@ -110,7 +112,7 @@
         start: "top 80%",
         toggleActions: "play none none none",
       },
-      y: 20,
+      x: 10,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
@@ -131,32 +133,57 @@
     });
   });
 
+//Desktop Mode 
   mm.add("(min-width: 769px)", () => {
     // Intro text and image for desktop
-    gsap.from(".intro-section .text-content", {
+    const tl= gsap.timeline()
+    tl.from(".intro-section .text-content",{
+   y: 50,
+   opacity: 0,
+   duration: 2,
+   ease: "bounce.out",
+   scrub: true,
+   delay: 0.02,
       scrollTrigger: {
-        trigger: ".intro-section",
-        start: "top 80%",
+        trigger: ".text-content",
+        start: "top center",
+        end:"bottom 0%",
         toggleActions: "play none none none",
-      },
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      ease: "power2.out",
+      }
     });
 
-    gsap.from(".intro-section .phone-display ", {
+    tl.from(".intro-section .phone-display ", {
       scrollTrigger: {
-        trigger: ".intro-section",
+        trigger: ".phone-display",
         start: "top 80%",
         toggleActions: "play none none none",
       },
       y: -50,
       opacity: 0,
-      duration: 1,
-      ease: "power2.out",
-      delay: 0.2,
-    });
+      duration: 3,
+      ease: "bounce.out",
+      delay: 0.02,
+    },"+=1");
+
+ //sign in button
+ gsap.from(".explore-btn",{
+   x: 50,
+   opacity: 0,
+   duration: 1,
+   ease: "power2.out(1)",
+   scrub: true,
+   delay: 0.2
+ })
+
+ //Logo
+  gsap.from(".logo",{
+   x: -50,
+   opacity: 0,
+   duration: 1,
+   ease: "power2.out(1)",
+   scrub: true,
+   delay: 0.2
+ })
 
     // Trusted Section features/cards animation desktop
     gsap.from(".trusted-section .feature", {
@@ -179,7 +206,7 @@
         start: "top 80%",
         toggleActions: "play none none none",
       },
-      x: -50,
+      y: -50,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
@@ -235,7 +262,7 @@
         start: "top 80%",
         toggleActions: "play none none none",
       },
-      y: 50,
+      y: -50,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
@@ -249,7 +276,7 @@
         start: "top 90%",
         toggleActions: "play none none none",
       },
-      y: 30,
+      y: -30,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
