@@ -55,7 +55,7 @@
     gsap.from(".platform-section .card", {
       scrollTrigger: {
         trigger: ".platform-section",
-        start: "top 80%",
+        start: "top 50%",
         toggleActions: "play none none none",
       },
       x: -20,
@@ -111,10 +111,10 @@
     gsap.from(".features-section .bottom-img ", {
       scrollTrigger: {
         trigger: ".features-section",
-        start: "top 80%",
+        start: "top 40%",
         toggleActions: "play none none none",
       },
-      x: 10,
+      x: 20,
       opacity: 0,
       duration: 1.6,
       ease: "power2.out",
