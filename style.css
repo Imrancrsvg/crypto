@@ -55,7 +55,12 @@ header.active .explore-btn a{
 .logo {
   color: #0f0;
 }
-
+/*.logo-container{
+  font-weight:bold ;
+  color: #0f0;
+  font-size: 30px;
+}
+*/
 .nav-links {
   list-style: none;
   display: flex;
@@ -250,6 +255,16 @@ header.active .explore-btn a{
 .social-icons span {
   margin-right: 10px;
   cursor: pointer;
+}
+.subscribe{
+  width: 100px;
+  height:20px;
+  background-color:#0f0 ;
+  color: #000;
+  font-weight:bold ;
+  border-radius:4px ;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer-links {

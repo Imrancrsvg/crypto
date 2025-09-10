@@ -1,19 +1,24 @@
  document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(TextPlugin)
+  gsap.registerPlugin(MotionPathPlugin)
+  gsap.registerPlugin(Flip)
+  
+
   const mm = gsap.matchMedia();
+  
 
   mm.add("(max-width: 768px)", () => {
     // Intro text and image
     gsap.from(".intro-section .text-content", {
       scrollTrigger: {
         trigger: ".text-content",
-        start: "top 80%",
+        start: "top 60%",
         end:"bottom 20%",
         marker:true,
-        toggleActions: "play reverse play reverse",
+        toggleActions: "play none none none",
       },
       x: -30,
-      y: 20,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
@@ -22,11 +27,10 @@
     gsap.from(".intro-section .phone-display ", {
       scrollTrigger: {
         trigger: ".intro-section",
-        start: "top 80%",
+        start: "top 50%",
         toggleActions: "play none none none",
       },
       x: 30,
-      y: 20,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
@@ -37,14 +41,14 @@
     gsap.from(".trusted-section .feature", {
       scrollTrigger: {
         trigger: ".trusted-section",
-        start: "top 80%",
+        start: "top 55%",
         toggleActions: "play none none none",
       },
       x: 20,
       opacity: 0,
-      duration: 1,
+      duration: 1.5,
       ease: "power2.out",
-      stagger: 0.25,
+      stagger: 0.4,
     });
 
     // Platform Section cards animation
@@ -55,11 +59,10 @@
         toggleActions: "play none none none",
       },
       x: -20,
-      y: 0,
       opacity: 0,
-      duration: 1,
+      duration: 1.5,
       ease: "power2.out",
-      stagger: 0.25,
+      stagger: 0.4,
     });
 
     // Platform text animation
@@ -70,7 +73,6 @@
         toggleActions: "play none none none",
       },
       x: 20,
-      y: 20,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
@@ -81,28 +83,28 @@
     gsap.from(".portfolio-section .option", {
       scrollTrigger: {
         trigger: ".portfolio-section",
-        start: "top 80%",
+        start: "top 50%",
         toggleActions: "play none none none",
       },
       x: 20,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
-      stagger: 0.25,
+      stagger: 0.3,
     });
 
     // Features Section cards animation
     gsap.from(".features-section .feature", {
       scrollTrigger: {
         trigger: ".features-section",
-        start: "top 80%",
+        start: "top 60%",
         toggleActions: "play none none none",
       },
       x: -20,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
-      stagger: 0.25,
+      stagger: 0.3,
     });
 
     // Features section bottom image animation
@@ -114,7 +116,7 @@
       },
       x: 10,
       opacity: 0,
-      duration: 1,
+      duration: 1.6,
       ease: "power2.out",
       delay: 0.3,
     });
@@ -123,10 +125,10 @@
     gsap.from(".footer", {
       scrollTrigger: {
         trigger: ".footer",
-        start: "top 90%",
+        start: "top 70%",
         toggleActions: "play none none none",
       },
-      y: 15,
+      y: -15,
       opacity: 0,
       duration: 1,
       ease: "power2.out",
@@ -137,11 +139,11 @@
   mm.add("(min-width: 769px)", () => {
     // Intro text and image for desktop
     const tl= gsap.timeline()
-    tl.from(".intro-section .text-content",{
+    gsap.from(".intro-section .text-content",{
    y: 50,
    opacity: 0,
    duration: 2,
-   ease: "bounce.out",
+   ease: "power2.out",
    scrub: true,
    delay: 0.02,
       scrollTrigger: {
@@ -152,7 +154,8 @@
       }
     });
 
-    tl.from(".intro-section .phone-display ", {
+//phone image
+    gsap.from(".intro-section .phone-display ", {
       scrollTrigger: {
         trigger: ".phone-display",
         start: "top 80%",
@@ -161,7 +164,7 @@
       y: -50,
       opacity: 0,
       duration: 3,
-      ease: "bounce.out",
+      ease: "power2.out",
       delay: 0.02,
     },"+=1");
 
@@ -175,8 +178,8 @@
    delay: 0.2
  })
 
- //Logo
-  gsap.from(".logo",{
+//Logo
+gsap.from(".logo",{
    x: -50,
    opacity: 0,
    duration: 1,
@@ -189,28 +192,35 @@
     gsap.from(".trusted-section .feature", {
       scrollTrigger: {
         trigger: ".trusted-section",
-        start: "top 80%",
+        start: "top 55%",
         toggleActions: "play none none none",
       },
       y: 50,
-      opacity: 0,
+      opacity: 1,
       duration: 1,
-      ease: "power2.out",
-      stagger: 0.25,
+      ease: "linear",
+      stagger: 0.3,
     });
+    
+    document.querySelector(".card").addEventListener("click",()=>{
+      const state =Flip.getState(".card") 
+    })
+    
 
     // Platform Section cards animation desktop
     gsap.from(".platform-section .card", {
       scrollTrigger: {
         trigger: ".platform-section",
-        start: "top 80%",
+        start: "top 65%",
         toggleActions: "play none none none",
       },
-      y: -50,
+      x: -50,
       opacity: 0,
       duration: 1,
-      ease: "power2.out",
-      stagger: 0.25,
+      ease: "power4.out",
+      stagger:{
+        each:0.3,
+            }
     });
 
     // Platform text animation desktop
@@ -224,7 +234,7 @@
       opacity: 0,
       duration: 1,
       ease: "power2.out",
-      delay: 0.2,
+      delay: 0.3,
     });
 
     // Portfolio Section options/cards animation desktop
@@ -235,10 +245,13 @@
         toggleActions: "play none none none",
       },
       y: 50,
-      opacity: 0,
+      opacity: 1,
       duration: 1,
       ease: "power2.out",
-      stagger: 0.25,
+      stagger:{
+        each:0.3,
+        from:"center"
+      }
     });
 
     // Features Section cards animation desktop
@@ -252,13 +265,13 @@
       opacity: 0,
       duration: 1,
       ease: "power2.out",
-      stagger: 0.25,
+      stagger: 0.3,
     });
 
     // Features section bottom image animation desktop
     gsap.from(".features-section .bottom-img img", {
       scrollTrigger: {
-        trigger: ".features-section",
+        trigger: ".bottom-img",
         start: "top 80%",
         toggleActions: "play none none none",
       },
@@ -268,8 +281,8 @@
       ease: "power2.out",
       delay: 0.3,
     });
-
-    // Footer animation desktop
+   
+     // Footer animation desktop
     gsap.from(".footer", {
       scrollTrigger: {
         trigger: ".footer",
