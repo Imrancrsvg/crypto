@@ -54,7 +54,7 @@
     // Platform Section cards animation
     gsap.from(".platform-section .card", {
       scrollTrigger: {
-        trigger: ".platform-section",
+        trigger: ".card",
         start: "top 50%",
         toggleActions: "play none none none",
       },
@@ -68,7 +68,7 @@
     // Platform text animation
     gsap.from(".platform-section .platform-text", {
       scrollTrigger: {
-        trigger: ".platform-section",
+        trigger: ".platform-text",
         start: "top 80%",
         toggleActions: "play none none none",
       },
@@ -110,7 +110,7 @@
     // Features section bottom image animation
     gsap.from(".features-section .bottom-img ", {
       scrollTrigger: {
-        trigger: ".features-section",
+        trigger: ".bottom-img",
         start: "top 40%",
         toggleActions: "play none none none",
       },
